@@ -1,4 +1,4 @@
-﻿Shader "Mirror/MaskedObject_URP"
+﻿Shader "Mirror/MaskedObject"
 {
     Properties
     {
@@ -9,8 +9,8 @@
 
     SubShader
     {
-        Tags 
-        { 
+        Tags
+        {
             "RenderType"="Opaque"
             "RenderPipeline"="UniversalRenderPipeline"
             "Queue"="Geometry"
@@ -24,18 +24,19 @@
 
         Pass
         {
-            Name "ForwardLit"
+            Name "Unlit"
             Tags { "LightMode"="UniversalForward" }
 
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
 
             struct Attributes
             {
-                float4 positionOS   : POSITION;
-                float2 uv           : TEXCOORD0;
+                float4 positionOS : POSITION;
+                float2 uv         : TEXCOORD0;
             };
 
             struct Varyings
