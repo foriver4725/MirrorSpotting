@@ -1,0 +1,13 @@
+{
+    "asset": "603d02a03e46344138a734dc9c6f3687",
+    "fileName": "0198c174-d621-72f7-9578-41bc6b8fee7f.wav",
+    "prompt": "a sound effect which is played when you find the hidden secret in a mini-game. in the game, players have to find out all secrets to clear the game, so this sound effect should make those players feel acomplishment.",
+    "negativePrompt": "",
+    "model": "0ee39b33-2893-4e0f-8c46-0e0bdd4eda85",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "384f1d4e6c5a2d4a0d46a30b3860a1d2",
+    "duration": 1.0,
+    "autoTrim": true,
+    "hasReference": false
+}
