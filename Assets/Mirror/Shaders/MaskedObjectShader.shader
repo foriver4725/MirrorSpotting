@@ -1,67 +1,58 @@
-﻿Shader "Mirror/MaskedObject_URP"
+﻿Shader "Mirror/MaskedObject"
 {
     Properties
     {
-        _Mask("Mask", Int) = 1
-        _Color("Color", Color) = (1,1,1,1)
         _MainTex("Albedo (RGB)", 2D) = "white" {}
+        _Color("Color", Color) = (1,1,1,1)
     }
 
     SubShader
     {
-        Tags
-        {
-            "RenderType"="Opaque"
-            "RenderPipeline"="UniversalRenderPipeline"
-            "Queue"="Geometry"
-        }
+        Tags { "RenderType"="Opaque" "Queue"="Geometry" }
 
         Stencil
         {
-            Ref [_Mask]
+            Ref 2
             Comp Equal
         }
 
         Pass
         {
-            Name "ForwardLit"
-            Tags { "LightMode"="UniversalForward" }
+            CGPROGRAM
 
-            HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+            #include "UnityCG.cginc"
 
-            struct Attributes
+            struct appdata
             {
-                float4 positionOS   : POSITION;
-                float2 uv           : TEXCOORD0;
+                float4 pos : POSITION;
+                float2 uv : TEXCOORD0;
             };
 
-            struct Varyings
+            struct v2f
             {
-                float4 positionHCS  : SV_POSITION;
-                float2 uv           : TEXCOORD0;
+                float4 pos : SV_POSITION;
+                float2 uv : TEXCOORD0;
             };
 
-            TEXTURE2D(_MainTex);
-            SAMPLER(sampler_MainTex);
-            float4 _Color;
+            sampler2D _MainTex;
+            half4 _Color;
 
-            Varyings vert (Attributes IN)
+            v2f vert (appdata v)
             {
-                Varyings OUT;
-                OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                OUT.uv = IN.uv;
-                return OUT;
+                v2f o;
+                o.pos = UnityObjectToClipPos(v.pos);
+                o.uv = v.uv;
+                return o;
             }
 
-            half4 frag (Varyings IN) : SV_Target
+            half4 frag (v2f i) : SV_Target
             {
-                half4 c = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, IN.uv) * _Color;
-                return c;
+                return tex2D(_MainTex, i.uv) * _Color;
             }
-            ENDHLSL
+
+            ENDCG
         }
     }
 }
