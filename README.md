@@ -23,6 +23,12 @@ https://github.com/user-attachments/assets/0d9ce3c2-9e07-4ce8-b744-1e8423b59856
 
 https://github.com/user-attachments/assets/abefd954-31e9-447b-8485-4a65c1f7d30d
 
+## How to Play
+Download the app from [the latest release](https://github.com/foriver4725/MirrorSpotting/releases).
+### Supported devices
+- Windows
+- macOS
+
 ## Using Licenses
 
 - "[Mirror](https://github.com/nkjzm/Mirror)" by [nkjzm](https://github.com/nkjzm) is licensed under [MIT](https://github.com/nkjzm/Mirror/blob/master/LICENSE)
