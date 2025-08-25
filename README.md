@@ -12,6 +12,11 @@ Stare at them for 3 seconds to set things right.<br/>
 鏡と見比べて、5つの間違いを探そう。<br/>
 3秒視線を合わせると元に戻すことができる。<br/>
 
+## Description
+There are 5 mistakes hidden in this room.<br/>
+The mirror shows the true world—compare it carefully and spot them.<br/>
+By staring at a mistake for over 3 seconds, you can erase it and set things right.<br/>
+
 ## Gameplay Videos
 
 https://github.com/user-attachments/assets/0d9ce3c2-9e07-4ce8-b744-1e8423b59856
